@@ -25,10 +25,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getLineChart();
+    this.getServerStatus();
   }
 
   getServerStatus() {
-    this.rest.getServerStatus().subscribe((data) => {
+    this.rest.getLineChartData().subscribe((data) => {
       console.log(data);
       this.status = data;
     });
