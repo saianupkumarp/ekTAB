@@ -15,11 +15,14 @@ export class DashboardComponent implements OnInit {
   status: string[];
   loadingMessage: any;
   errorMessage: any;
+  noUiSlider: any;
 
   constructor(private _electronService: ElectronService, public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getDummyData();
+
+
   }
 
   getServerStatus() {
@@ -41,7 +44,7 @@ export class DashboardComponent implements OnInit {
       this.loadingMessage = false;
     });
   }
-  
+
   openDialog(){
     console.log("function called");
     this._electronService.remote.dialog.showOpenDialog({title: 'Select a folder', properties: ['openFile']}, (db_file) => {
@@ -50,7 +53,7 @@ export class DashboardComponent implements OnInit {
           return;
       } else {
         console.log(db_file[0])
-        console.log(db_file)
+        console.log(db_file);
       }      
     });
   }

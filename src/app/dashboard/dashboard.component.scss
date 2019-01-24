@@ -7,3 +7,329 @@
         width: 500px;
     }
 }
+//from chart.css 
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 2 ;
+  }
+
+  .grid path {
+    stroke-width: 0;
+  }
+
+  .line {
+    fill: none;
+    stroke-width: 1.5px;
+  }
+  body {
+    padding-top: 51px;  
+  }
+  .text-center {
+    padding-top: 20px;
+  }
+  /* .col-xs-12 {
+    background-color: #fff;
+  } */
+  #sidebar {
+    height: 100%;
+    padding-right: 0;
+    padding-top: 20px;
+  }
+  #sidebar .nav {
+    width: 95%;
+  }
+  #sidebar li {
+    border:0 #f2f2f2 solid;
+    border-bottom-width:1px;
+  }
+  
+  #ChartsPanel{
+    padding-left: 10%;
+    padding-right: 10%;    
+  }
+
+/* linechart legend */
+  .legend1 { 
+    padding: 10px;
+   overflow: auto;
+   font: 10px sans-serif;
+   border: 1px solid #bbb;
+   background-color: #cccccc;
+   box-shadow: 2px 2px 1px #888;
+ }
+
+ .legend2 { 
+  padding: 10px;
+ overflow: auto;
+ font: 10px sans-serif;
+ border: 1px solid #bbb;
+ background-color: #cccccc;
+ box-shadow: 2px 2px 1px #888;
+}
+ .scrollable-panel{
+  max-height: 300px;
+  overflow: auto;
+}
+#slider{
+  margin-bottom: 2%;
+}
+.tooltip{
+  opacity: 1 !important;
+  margin-left:25%;
+  /* padding-left:65px; */
+  
+}
+.yscaleoptions {
+  margin-top:5%;
+  position: relative;
+  z-index: 10;
+}
+.options_btn :checked 
+{
+    font-size: 13px;
+    box-shadow: none;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    padding-right: 30px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #61A24F;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.canvasDiv {
+  position: absolute;
+  width: 550px;
+  height: 300px;
+}
+.popup-footer{
+float: left;
+margin-top:7%;
+}
+.NetworkDetails-body{
+  line-height: 2em;
+}
+#DivUpload{
+  padding-bottom:5%;
+  padding-top:5%;
+}
+#ChangeNBars{
+  padding-top:5%;
+}
+#fromb {
+  /* fill: green; */
+}
+.link.tob {
+  /* stroke: green; */
+}
+#tob {
+  /* fill: green; */
+}
+.link.fromb {
+  /* stroke: green; */
+}
+.link.rejectb {
+  stroke: gray;
+  stroke-dasharray: 0,2 1;
+}
+#turns {
+  height: 20px;
+}
+#graph {
+  overflow: auto;
+}
+.NoOgGroupsInput{
+
+  padding-bottom: 30px;
+
+}
+//from style.css
+.import{
+	
+	padding-top: 95px;
+    padding-bottom: 95px;
+	padding-left: 90px;
+
+}
+
+.space {
+	
+	padding: 20px;
+	
+}
+
+.panel-body-size {
+
+	min-height: 500px;
+
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) scale(0.8) !important;
+    -moz-transform: translateX(-50%) translateY(-50%) scale(0.8) !important;
+    -o-transform: translateX(-50%) translateY(-50%) scale(0.8) !important;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.8) !important;
+  }
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 51px;
+    height: 51px;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.close:before, .close:after {
+  content: '';
+    position: absolute;
+    background: #767676;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -o-border-radius: 1px;
+    border-radius: 1px;
+    left: 14px;
+    right: 14px;
+    top: 30px;
+    height: 3px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -webkit-transition: all 100ms ease-in;
+    -o-transition: all 100ms ease-in;
+}
+
+.close:after {
+     -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.yscaleoptions{
+  position: absolute;
+z-index: 10;
+
+}
+.popup {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: #F8F8F8;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 500px;
+    height: 40%;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.09), 0px 11px 12px 7px rgba(0, 0, 0, 0.02);
+    -moz-transition: all 120ms;
+    -webkit-transition: all 120ms;
+    -o-transition: all 120ms;
+    transition: all 120ms;
+    z-index: 99;
+  padding: 25px;
+  color: #5E5E5E;
+  overflow-y:scroll;
+
+}
+
+@media screen and (max-width: 1000px) {
+  .popup {
+    width: 80%;
+  }
+}
+
+.popup-header {
+  /* text-transform: uppercase; */
+  font-size: 18px;
+}
+
+.popup-body {
+  padding: 25px 0;
+}
+
+.button {
+  padding: 10px 15px;
+  border: 1px solid #F5F5F5;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px #F5F5F5;
+  color: #5E5E5E;
+  cursor: pointer;
+  transition: all 120ms ease-in;
+  outline:none;
+}
+
+.evo-pop  {
+    position: relative !important;
+}

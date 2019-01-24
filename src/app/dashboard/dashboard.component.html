@@ -1,46 +1,60 @@
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
+  <!-- <link href="css/evol-colorpicker.css" rel="stylesheet" type="text/css">   -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.js" ></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.js"></script>
+
+
 <div style="text-align:center;">
   <input type="text" placeholder="Please select a file" id="db-file" disabled="disabled" />
   <input type="button" value="Choose a file" id="select-db-file" (click)="openDialog()" />
 </div>
 
-<div id="content" style="display:none">
+
+<div id="content" style="display:block">
         <div class="row space">
-            <div class="col-lg-8 col-md-6">
+            <!-- <div class="col-lg-8 col-md-6"> -->
+                    <div  class="col-lg-2 col-md-4">
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-10">
                                 <strong>Number of Scenarios: </strong>
-                                <span id="NumOfscen"> </span>
+                                <span id="NumOfscen"> 1 </span>
                             </div>
                             <div class="col-xs-10">
                                 <strong>Scenario Name: </strong>
-                                <span id="SecnarioName"> </span>
+                                <span id="SecnarioName"> test </span>
                                 <select id="SecnarioPicker"> </select>
                             </div>
                             <div class="col-xs-10">
                                 <strong>Scenario description: </strong>
-                                <span id="SecnarioDesc"> </span>
+                                <span id="SecnarioDesc"> Desc test</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div  class="col-lg-2 col-md-3">
+
+            <!-- <div class="col-lg-3 col-md-6"> -->
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-9">
                                 <strong>Number of Actors: </strong>
-                                <span id="NumOfActors"> </span>
+                                <span id="NumOfActors">7 </span>
                             </div>
                             <div class="col-xs-9">
                                 <strong>Number of Dimensions: </strong>
-                                <span id="NumOfDim"> </span>
+                                <span id="NumOfDim"> 2</span>
                             </div>
                             <div class="col-xs-9">
                                 <strong>Turn: </strong>
-                                <span id="currentTurn"> </span>
+                                <span id="currentTurn"> 1</span>
                             </div>
                             <div class="col-xs-9">
                                 <strong>Dimension: </strong>
@@ -58,6 +72,7 @@
         <div class="row space">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <div id="slider"></div>
+
             </div>
         </div>
         <div class="row space">
@@ -81,19 +96,11 @@
                             <div class="tab-pane fade in active" id="LineGraphTab">
                                 <!-- Default 1 -->
                                 <div class="container-fluid">
-                                    <div class="canvasDiv">
+                                    <!-- <div class="canvasDiv">
                                         <canvas id="canvas" style="display:none;"></canvas>
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-8">
-                                        <div class="panel panel-default">
-                                            <div id="MainLineChart" class="panel-body "> </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12  col-md-12 col-md-offset-0 col-lg-4">
-                                        <div class="panel panel-default">
-                                            <div id="legend" class="panel-body scrollable-panel">
-                                            </div>
-                                        </div>
+                                    </div> -->
+                                    <div>
+                                            <app-line-chart #MainLineChart></app-line-chart>
                                     </div>
                                 </div>
                             </div>
@@ -101,12 +108,12 @@
                             <!-- //2nd tab -->
                             <div class="tab-pane fade" id="BarGraphTab">
                                 <div class="container-fluid">
-                                    <div class="canvasDiv">
+                                    <!-- <div class="canvasDiv">
                                         <canvas id="Barcanvas" style="display:none;"></canvas>
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-12 col-md-12 col-lg-8">
                                         <div class="panel panel-default">
-                                            <form id="yAxisScale">
+                                            <!-- <form id="yAxisScale">
                                                 <div class="yscaleoptions">
                                                     <span data-container="body" role="tooltip" aria-haspopup="true" class="tooltip tooltip-bottom-right ">
                                                         <input type="radio" id="Fixedbtn" name="radio-group">
@@ -115,8 +122,12 @@
                                                         <label for="Responsivebtn">Responsive y-axis scale</label>
                                                     </span>
                                                 </div>
-                                            </form>
-                                            <div id="MainBarChart" class="panel-body "></div>
+                                            </form> -->
+                                            <div>
+                                                    <app-bar-chart #MainLineChart></app-bar-chart>
+
+                                            </div>
+                                            <!-- <div id="MainBarChart" class="panel-body "></div> -->
                                         </div>
                                     </div>
                                     <div class="col-sm-12  col-md-12 col-md-offset-0 col-lg-4">
@@ -151,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="row space">
+        <!-- <div class="row space">
             <div class="col-sm-12  col-md-12  col-lg-12">
                 <button class="toggle btn btn-success" data-target="SizePopup" onclick="ChangeresolutionandDownload()">Edit and Download</button>
                 <button class="toggle btn btn-success" data-target="ColorPopup" onclick="changecolors()"> Change Colors</button>
@@ -219,4 +230,5 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
+      
