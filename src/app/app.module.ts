@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxElectronModule } from 'ngx-electron';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NvD3Module } from 'ngx-nvd3';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing-module';
@@ -28,7 +29,8 @@ import { LoaderInterceptorService } from './loader-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     NgxElectronModule,
-    HttpClientModule
+    HttpClientModule,
+    NvD3Module
   ],
   providers: [
     {

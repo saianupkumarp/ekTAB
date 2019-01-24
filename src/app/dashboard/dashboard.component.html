@@ -83,9 +83,8 @@
                         <div class="panel panel-default" id="LinePanel">
                             <div class="panel-heading"> <strong>Line Chart</strong></div>
                             <div id="MainLineChart" class="panel-body ">
-                                <!-- <script src="../vendor/charts/Linechart.js"></script> -->
+                               <nvd3 [options]="LineChartOptions" [data]="Linedata"></nvd3>
                             </div>
-                            <!-- <app-line-chart #lineChart></app-line-chart> -->
 
                         </div>
                     </div>

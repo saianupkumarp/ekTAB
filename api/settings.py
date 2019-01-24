@@ -75,5 +75,7 @@ DB_QUERIES = [
                             on B.Init_Act_i = MI.Act_i and MI.scenarioid = B.scenarioid inner join ( select Act_i, scenarioid, name from ActorDescription \
                             ) as MR on B.Recd_Act_j = MR.Act_i and MR.scenarioid = B.scenarioid inner join \
                             ActorDescription as MN on M.Act_i = MN.Act_i and MN.scenarioid = B.scenarioid \
-                            Where M.Dim_k = {dimID} and ScenarioId = '{scenarioID}' and M.Movd_Turn = {turnID} ORDER BY M.Dim_k" }
+                            ORDER BY M.Dim_k" }
 ]
+
+# Where M.Dim_k = {dimID} and ScenarioId = '{scenarioID}'and M.Movd_Turn = {turnID}

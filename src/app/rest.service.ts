@@ -27,8 +27,8 @@ export class RestService {
       map(this.extractData));
   }
 
-  getDummyData(): Observable<any> {
-    return this.http.get(endpoint + 'get_data').pipe(
+  getLineChartData(): Observable<any> {
+    return this.http.get(endpoint + 'get_line_data').pipe(
       map(this.extractData));
   }
 
