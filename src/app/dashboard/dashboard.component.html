@@ -1,234 +1,104 @@
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
-  <!-- <link href="css/evol-colorpicker.css" rel="stylesheet" type="text/css">   -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.js" ></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.css" rel="stylesheet">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css
+" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 <div style="text-align:center;">
-  <input type="text" placeholder="Please select a file" id="db-file" disabled="disabled" />
-  <input type="button" value="Choose a file" id="select-db-file" (click)="openDialog()" />
+    <input type="text" placeholder="Please select a file" id="db-file" disabled="disabled" />
+    <input type="button" value="Choose a file" id="select-db-file" (click)="openDialog()" />
 </div>
 
 
-<div id="content" style="display:block">
-        <div class="row space">
-            <!-- <div class="col-lg-8 col-md-6"> -->
-                    <div  class="col-lg-2 col-md-4">
+<div id="content" style="display:Block">
+    <div class="row space">
+        <div class="col-lg-8 col-md-6">
+            <div>
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-10">
                                 <strong>Number of Scenarios: </strong>
                                 <span id="NumOfscen"> 1 </span>
+                                <!-- <p id="NumOfscen"> 1 </p> -->
                             </div>
                             <div class="col-xs-10">
                                 <strong>Scenario Name: </strong>
-                                <span id="SecnarioName"> test </span>
-                                <select id="SecnarioPicker"> </select>
+                                <span id="SecnarioName"> </span>
+                                <select id="SecnarioPicker">
+                                    <option>DummyData_3Dim</option>
+                                    <option>DummyData_3Dim</option>
+                                </select>
                             </div>
                             <div class="col-xs-10">
                                 <strong>Scenario description: </strong>
-                                <span id="SecnarioDesc"> Desc test</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div  class="col-lg-2 col-md-3">
-
-            <!-- <div class="col-lg-3 col-md-6"> -->
-                <div class="panel">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-9">
-                                <strong>Number of Actors: </strong>
-                                <span id="NumOfActors">7 </span>
-                            </div>
-                            <div class="col-xs-9">
-                                <strong>Number of Dimensions: </strong>
-                                <span id="NumOfDim"> 2</span>
-                            </div>
-                            <div class="col-xs-9">
-                                <strong>Turn: </strong>
-                                <span id="currentTurn"> 1</span>
-                            </div>
-                            <div class="col-xs-9">
-                                <strong>Dimension: </strong>
-                                <span>
-                                    <select id="Dimpicker">
-                                    </select>
-                                </span>
+                                <span id="SecnarioDesc"> Dummy scenario to test reading format </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- slider -->
-        <div class="row space">
-            <div class="col-sm-12 col-lg-12 col-md-12">
-                <div id="slider"></div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <strong>Number of Actors: </strong>
+                            <span id="NumOfActors"> 7</span>
+                        </div>
+                        <div class="col-xs-9">
+                            <strong>Number of Dimensions: </strong>
+                            <span id="NumOfDim"> 3</span>
+                        </div>
+                        <!-- <div class="col-xs-9">
+                            <strong>Turn: </strong>
+                            <span id="currentTurn"> 2 </span>
+                        </div> -->
+                        <div class="col-xs-9">
+                            <strong>Dimension: </strong>
+                            <span>
+                                <select id="Dimpicker">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
 
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row space">
+    </div>
+    
+
+
+    <div class="row space">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="panel with-nav-tabs panel-default">
-                    <div class="panel-heading tabs">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#LineGraphTab" data-toggle="tab">Policy Position </a>
-                            </li>
-                            <li>
-                                <a href="#BarGraphTab" data-toggle="tab">Effective Power Landscape </a>
-                            </li>
-                            <li>
-                                <a href="#NetworkTab" data-toggle="tab"> Bargain Queue Resolution </a>
-                            </li>
-                        </ul>
+                <div class="container-fluid">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="panel panel-default" id="LinePanel">
+                            <div class="panel-heading"> <strong>Line Chart</strong></div>
+                            <div id="MainLineChart" class="panel-body ">
+                                <!-- <script src="../vendor/charts/Linechart.js"></script> -->
+                            </div>
+                            <!-- <app-line-chart #lineChart></app-line-chart> -->
+
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <div class="tab-content">
-                            <div class="tab-pane fade in active" id="LineGraphTab">
-                                <!-- Default 1 -->
-                                <div class="container-fluid">
-                                    <!-- <div class="canvasDiv">
-                                        <canvas id="canvas" style="display:none;"></canvas>
-                                    </div> -->
-                                    <div>
-                                            <app-line-chart #MainLineChart></app-line-chart>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- //2nd tab -->
-                            <div class="tab-pane fade" id="BarGraphTab">
-                                <div class="container-fluid">
-                                    <!-- <div class="canvasDiv">
-                                        <canvas id="Barcanvas" style="display:none;"></canvas>
-                                    </div> -->
-                                    <div class="col-sm-12 col-md-12 col-lg-8">
-                                        <div class="panel panel-default">
-                                            <!-- <form id="yAxisScale">
-                                                <div class="yscaleoptions">
-                                                    <span data-container="body" role="tooltip" aria-haspopup="true" class="tooltip tooltip-bottom-right ">
-                                                        <input type="radio" id="Fixedbtn" name="radio-group">
-                                                        <label for="Fixedbtn">Fixed y-axis scale</label>
-                                                        <input type="radio" id="Responsivebtn" name="radio-group" checked>
-                                                        <label for="Responsivebtn">Responsive y-axis scale</label>
-                                                    </span>
-                                                </div>
-                                            </form> -->
-                                            <div>
-                                                    <app-bar-chart #MainLineChart></app-bar-chart>
-
-                                            </div>
-                                            <!-- <div id="MainBarChart" class="panel-body "></div> -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12  col-md-12 col-md-offset-0 col-lg-4">
-                                        <div class="panel panel-default">
-                                            <div id="Barlegend" class="panel-body scrollable-panel">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- //3rd tab -->
-                            <div class="tab-pane fade" id="NetworkTab">
-                                <div class="container-fluid">
-                                    <div class="canvasDiv">
-                                        <canvas id="Networkcanvas" style="display:none;"></canvas>
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <div class="panel panel-default">
-                                            <div id="MainNetwork" class="panel-body"></div>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-sm-12  col-md-12 col-md-offset-0 col-lg-4">
-                                        <div class="panel panel-default">
-                                            <div id="Networklegend" class="panel-body scrollable-panel">
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                </div>
+                    <div class="col-sm-12  col-md-6 col-md-offset-0 col-lg-6">
+                        <div class="panel panel-default" id="BarPanel">
+                            <div class="panel-heading"> <strong>Bar Chart</strong> </div>
+                            <div id="Barchart" class="panel-body ">
+                                <!-- <script src="../vendor/charts/barchart.js"></script> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="row space">
-            <div class="col-sm-12  col-md-12  col-lg-12">
-                <button class="toggle btn btn-success" data-target="SizePopup" onclick="ChangeresolutionandDownload()">Edit and Download</button>
-                <button class="toggle btn btn-success" data-target="ColorPopup" onclick="changecolors()"> Change Colors</button>
-                <button class="toggle btn btn-success" data-target="NetworkDetails" id="NetworkButton" style="display: none;">Network Explanation</button>
-
-            </div>
-            <div id="SizePopup" class="popup hide">
-                <div class="popup-header">
-                    <span class="close toggle" data-target="SizePopup">close</span>
-                </div>
-                <div class="SizePopup-body">
-                </div>
-                <div class="SizePopup-footer">
-                    <br>
-                    <button class="toggle button" data-target="SizePopup" onclick="GetNewSize()">Confirm Edits</button>
-                    <button class="toggle button" data-target="SizePopup" onclick="downloadPNG()">download</button>
-                </div>
-            </div>
-            <div id="ColorPopup" class="popup hide">
-                <div class="popup-header">
-                    <span class="close toggle" data-target="ColorPopup">close</span>
-                </div>
-                <div class="popup-body">
-                </div>
-                <div class="popup-footer">
-                    <div id="DivUpload">
-                        <span>
-                            <strong> Import Colors from a CSV : </strong>
-                        </span>
-                        <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
-                    </div>
-                    <div id="DivExportCSV">
-                        <button class="toggle button" onclick="ExportColorsCSV()">Export CSV</button>
-
-                    </div>
-                    <div>
-                        <button class="toggle button" data-target="ColorPopup" onclick="saveSelectedColors()">Apply Changes</button>
-                    </div>
-                </div>
-            </div>
-            <div id="NetworkDetails" class="popup hide">
-                <div class="popup-header">
-                    <span class="close toggle" data-target="NetworkDetails">close</span>
-                    Network Diagram of Bargain Queue Resolution
-                </div>
-
-                <div class="NetworkDetails-body">
-
-
-
-                    This Diagram visulize the Propose-Resolve stages of the SMP bargaining model
-                    <ul>
-                        <li>Actors are represented with nodes colred according to each actor's color. </li>
-                        <li>Bargains are represented with small grey nodes. </li>
-                        <li>All edges are directed. </li>
-                        <li>The edge coming to the bargain node from the actor's node represent the initiator. </li>
-                        <li>The edge coming to the actor's node from the bargain node represent the Reciever. </li>
-                        <li>Solid-line edges represent accepted bargains, dashed edges represent rejected bargains. </li>
-                        <li> Egdes thickness are proportional to the probability of the bargain being accepted. </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-        </div>
-
-    </div> -->
-      
+    
+</div>
