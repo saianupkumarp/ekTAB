@@ -27,6 +27,12 @@ export class RestService {
       map(this.extractData));
   }
 
+  getDummyData(): Observable<any> {
+    return this.http.get(endpoint + 'get_data').pipe(
+      map(this.extractData));
+  }
+
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
