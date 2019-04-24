@@ -16,3 +16,4 @@ def get_actors():
     # filters = {'scenarioID': "000000000000000040BAC5BE3D1236F1", "dimID": 0}
     dat = data.get_data(DATABASE, 'LineChartQuery')
     return jsonify(dat)
+
