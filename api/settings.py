@@ -14,7 +14,8 @@ FALLBACK_LOCALE = 'en'
 
 # Paths
 APP_ROOT = path.dirname(path.abspath(__file__))
-OUTPUT_ROOT = tempfile.gettempdir()
+UPLOAD_PATH = path.join(APP_ROOT, '_files')
+ALLOWED_EXTENSIONS = set(['csv'])
 
 # DB Statements
 
