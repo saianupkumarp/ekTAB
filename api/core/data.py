@@ -1,3 +1,5 @@
+from gevent import monkey
+monkey.patch_all()
 from flask import make_response, request
 from pySMP import model
 import sqlite3 as sql3
@@ -28,7 +30,6 @@ def get_data(DATABASE, queryType, filters=None):
 def run_task(file_id, args):
     if args['app_mode'] == 'dsk':
         conn_string = 'Driver=QSQLITE;Database={}'.format(os.path.join(settings.UPLOAD_PATH, 'db', file_id))
-        print (conn_string)
     elif args['app_mode'] == 'web':
         # TODO POSTGRES
         conn_string = "DUMMY"
@@ -42,9 +43,6 @@ def run_task(file_id, args):
         dimensionCnt = thisSMP.getNumDimensions()
         stateCnt = thisSMP.getNumStates()
         posHists = thisSMP.getPositionHistory()
-
-        # Deleting the model to free up after storing the scenario details
-        thisSMP.delModel()
 
         # Delete the input file
         delete_input_file(file_id, 'csv')

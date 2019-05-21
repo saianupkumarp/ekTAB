@@ -8,6 +8,9 @@ SERVER_HOST = 'localhost'
 SERVER_PORT = 4041
 SECRET_KEY = '8lsbAgXecB'
 
+# Workers
+NUM_WORKERS = 3
+
 # Localization
 CURRENT_TIMEZONE = 'Asia/Riyadh'
 FALLBACK_LOCALE = 'en'
